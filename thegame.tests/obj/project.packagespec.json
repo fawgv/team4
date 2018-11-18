@@ -14,7 +14,11 @@
     ],
     "frameworks": {
       "netcoreapp2.1": {
-        "projectReferences": {}
+        "projectReferences": {
+          "C:\\Users\\Dmitry\\RiderProjects\\team4\\src\\thegame.csproj": {
+            "projectPath": "C:\\Users\\Dmitry\\RiderProjects\\team4\\src\\thegame.csproj"
+          }
+        }
       }
     },
     "warningProperties": {
