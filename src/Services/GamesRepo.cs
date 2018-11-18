@@ -27,10 +27,11 @@ namespace thegame.Services
 
         public Game GetGame(Guid id) => games[id];
 
-        public void CreateGame()
+        public Guid CreateGame()
         {
             Guid id = Guid.NewGuid();
             games.Add(id, new Game(firstLevel));
+            return id;
         }
     }
 }
