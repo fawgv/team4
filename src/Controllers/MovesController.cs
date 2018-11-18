@@ -16,12 +16,9 @@ namespace thegame.Controllers
             this.gamesRepo = gamesRepo;
         }
         
-        public static Vec player;
         [HttpPost]
         public IActionResult Moves(Guid gameId, [FromBody]UserInputForMovesPost userInput)
         {
-            if (player == null)
-                player = new Vec(1, 1);
             Vec move;
             switch (userInput.KeyPressed)
             {
@@ -41,12 +38,10 @@ namespace thegame.Controllers
                     move = new Vec(0, 0);
                     break;
             }
-            player += move;
+            
             var game = gamesRepo.GetGame(gameId);
             if (userInput.ClickedPos != null)
-            {
-                game.Cells.First(c => c.Type == "player").Pos = player;
-            }
+                game.MovePlayer(move);
 
             return new ObjectResult(game);
         }
