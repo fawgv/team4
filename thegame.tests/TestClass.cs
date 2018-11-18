@@ -25,6 +25,36 @@ namespace thegame.tests
             }
         };
 
+        [TestCase(1, 1)]
+        [TestCase(1, 2)]
+        public void Success_InitialPosition(int playerPosX, int playerPosY)
+        {
+            var typeCellGames = new[,]
+            {
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Empty
+                },
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Empty
+                },
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Empty
+                }
+            };
+            typeCellGames[playerPosY, playerPosX] = TypeCellGame.Player;
+            game = new Game(typeCellGames);
+            game.GetPlayerPos().Should().Be(new Vec(playerPosY, playerPosX));
+        }
+        
+
+        [Test]
+        public void Success_InitialMap()
+        {
+            game = new Game(firstLevel);
+            game.GetMap().Should().BeEquivalentTo(firstLevel);
+        }
+        
+
         [TestCase(MoveDirection.Right, 2, 1)]
         [TestCase(MoveDirection.Left, 0, 1)]
         [TestCase(MoveDirection.Up, 1, 0)]
