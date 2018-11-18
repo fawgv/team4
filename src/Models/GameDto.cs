@@ -16,6 +16,12 @@ namespace thegame.Models
             Score = score;
         }
 
+        public GameDto(TypeCellGame[,] CellType)
+        {
+
+        }
+
+        public TypeCellGame[,] cellType;
         public CellDto[] Cells;
         public int Width;
         public int Height;

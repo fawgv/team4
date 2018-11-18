@@ -19,10 +19,16 @@ namespace thegame.Models
             ZIndex = zIndex;
         }
 
+        public CellDto(Vec pos, TypeCellGame typeCellGame)
+        {
+            Pos = pos;
+            TypeCellGame = typeCellGame;
+        }
         public string Id;
         public Vec Pos;
         public int ZIndex;
         public string Type;
         public string Content;
+        public TypeCellGame TypeCellGame;
     }
 }
