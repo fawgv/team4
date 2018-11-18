@@ -15,12 +15,12 @@ namespace thegame.Models
 
         public Game(TypeCellGame[,] GameMap)
         {
-            heigth = GameMap.GetLength(1);
-            width = GameMap.GetLength(0);
-            StaticGameCells = new TypeCellGame[width, heigth];
-            DynamicGameCells = new TypeCellGame[width, heigth];
-            for (int y = 0; y < width; y++)
-                for (int x = 0; x < heigth; x++)
+            heigth = GameMap.GetLength(0);
+            width = GameMap.GetLength(1);
+            StaticGameCells = new TypeCellGame[heigth, width];
+            DynamicGameCells = new TypeCellGame[heigth, width];
+            for (int y = 0; y < heigth; y++)
+                for (int x = 0; x < width; x++)
                 {
                     switch (GameMap[y, x])
                     {
@@ -55,7 +55,7 @@ namespace thegame.Models
 
         public TypeCellGame FindCellGameObject(int y, int x)
         {
-            if (y == playerPos.X && x == playerPos.Y)
+            if (y == playerPos.Y && x == playerPos.X)
                 return TypeCellGame.Player;
             if (DynamicGameCells[y, x] != TypeCellGame.Empty)
                 return DynamicGameCells[y, x];
