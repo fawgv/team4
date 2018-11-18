@@ -1,9 +1,6 @@
-﻿using System;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
-using thegame;
 using thegame.Models;
-using thegame.Services;
 
 namespace thegame.tests
 {
@@ -11,11 +8,28 @@ namespace thegame.tests
     public class TestClass
     {
         Game game;
+
+        readonly TypeCellGame[,] firstLevel =
+        {
+            {
+                TypeCellGame.Wall, TypeCellGame.Wall, TypeCellGame.Wall, TypeCellGame.Wall, TypeCellGame.Wall,
+                TypeCellGame.Wall
+            },
+            {
+                TypeCellGame.Wall, TypeCellGame.Player, TypeCellGame.Empty, TypeCellGame.Box, TypeCellGame.Target,
+                TypeCellGame.Wall
+            },
+            {
+                TypeCellGame.Wall, TypeCellGame.Wall, TypeCellGame.Wall, TypeCellGame.Wall, TypeCellGame.Wall,
+                TypeCellGame.Wall,
+            }
+        };
+        
         
         [SetUp]
         public void SetGame()
         {
-            game = new Game(GamesRepo.GetLevel(1));
+            game = new Game(firstLevel);
         }
         
         [Test]
