@@ -9,49 +9,92 @@ namespace thegame.Models
     {
         private TypeCellGame[,] StaticGameCells;
         private TypeCellGame[,] DynamicGameCells;
+        private int heigth;
+        private int width;
+        private Vec playerPos;
 
-        public Game(TypeCellGame[,] dynamicGameCells)
+        public Game(TypeCellGame[,] GameMap)
         {
-            DynamicGameCells = dynamicGameCells;
-        }
-
-
-
-        public TypeCellGame FindCellGameObject(Vec vec)
-        {
-            return DynamicGameCells[vec.X, vec.Y];
-        }
-
-        public Vec GetPlayerPos()
-        {
-            for (int xI = 0; xI < DynamicGameCells.GetLength(0); xI++)
+            heigth = GameMap.GetLength(1);
+            width = GameMap.GetLength(0);
+            StaticGameCells = new TypeCellGame[width, heigth];
+            DynamicGameCells = new TypeCellGame[width, heigth];
+            for (int x = 0; x < width; x++)
+            for (int y = 0; y < heigth; y++)
             {
-                for (int yI = 0; yI < DynamicGameCells.GetLength(1); yI++)
+                switch (GameMap[x, y])
                 {
-                    if (DynamicGameCells[xI, yI] == TypeCellGame.Player)
-                    {
-                        return new Vec(xI, yI);
-                    }
+                    case TypeCellGame.Empty:
+                        DynamicGameCells[x, y] = TypeCellGame.Empty;
+                        StaticGameCells[x, y] = TypeCellGame.Empty;
+                        break;
+                    case TypeCellGame.Box:
+                        DynamicGameCells[x, y] = TypeCellGame.Box;
+                        StaticGameCells[x, y] = TypeCellGame.Empty;
+                        break;
+                    case TypeCellGame.Player:
+                        playerPos = new Vec(x, y);
+                        DynamicGameCells[x, y] = TypeCellGame.Empty;
+                        StaticGameCells[x, y] = TypeCellGame.Empty;
+                        break;
+                    case TypeCellGame.Wall:
+                        DynamicGameCells[x, y] = TypeCellGame.Empty;
+                        StaticGameCells[x, y] = TypeCellGame.Wall;
+                        break;
+                    case TypeCellGame.Target:
+                        DynamicGameCells[x, y] = TypeCellGame.Empty;
+                        StaticGameCells[x, y] = TypeCellGame.Target;
+                        break;
+                    case TypeCellGame.BoxInTarget:
+                        DynamicGameCells[x, y] = TypeCellGame.BoxInTarget;
+                        StaticGameCells[x, y] = TypeCellGame.Empty;
+                        break;
                 }
             }
-            return new Vec(0, 0);
         }
 
-        public void MovePlayer(Vec posVec)
+        public TypeCellGame FindCellGameObject(int x, int y)
         {
-            var oldPlayesPos = GetPlayerPos();
-            DynamicGameCells[oldPlayesPos.X, oldPlayesPos.Y] = TypeCellGame.Empty; //Доработать на проверку с StaticGameCells
-            DynamicGameCells[posVec.X, posVec.Y] = TypeCellGame.Player;
+            if (x == playerPos.X && y == playerPos.Y)
+                return TypeCellGame.Player;
+            if (DynamicGameCells[x, y] != TypeCellGame.Empty)
+                return DynamicGameCells[x, y];
+            return StaticGameCells[x, y];
+        }
+
+        public TypeCellGame FindCellGameObject(Vec vec) => FindCellGameObject(vec.X, vec.Y);
+
+        public Vec GetPlayerPos() => playerPos;
+
+        public void MovePlayer(MoveDirection move)
+        {
+            switch (move)
+            {
+                case MoveDirection.Down:
+                    playerPos = new Vec(playerPos.X, playerPos.Y + 1);
+                    break;
+                case MoveDirection.Up:
+                    playerPos = new Vec(playerPos.X, playerPos.Y - 1);
+                    break;
+                case MoveDirection.Left:
+                    playerPos = new Vec(playerPos.X - 1, playerPos.Y);
+                    break;
+                case MoveDirection.Right:
+                    playerPos = new Vec(playerPos.X + 1, playerPos.Y);
+                    break;
+            }
         }
 
 
 
         public TypeCellGame[,] GetMap()
         {
-            return DynamicGameCells;  //Доработать на проверку с StaticGameCells
+            var ResMap = new TypeCellGame[width, heigth];
+            for (int x = 0; x < width; x++)
+            for (int y = 0; y < heigth; y++)
+                ResMap[x, y] = FindCellGameObject(x, y);
+
+            return ResMap;
         }
-
-
-
     }
 }
