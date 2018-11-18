@@ -7,10 +7,20 @@ namespace thegame.Controllers
     [Route("api/games")]
     public class GamesController : Controller
     {
+        GamesRepo gamesRepo;
+        
+        public GamesController(GamesRepo gamesRepo)
+        {
+            this.gamesRepo = gamesRepo;
+        }
+        
         [HttpPost]
         public IActionResult Index()
         {
-            return new ObjectResult(TestData.AGameDto(new Vec(1, 1)));
+            var t = new TransformGameToGameDTO();
+            var guid = gamesRepo.CreateGame();
+            var game = t.TransformGame(gamesRepo.GetGame(guid), guid);
+            return new ObjectResult(game);
         }
     }
 }

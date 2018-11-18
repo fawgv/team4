@@ -7,7 +7,7 @@ namespace thegame.Models
 {
     public class TransformGameToGameDTO
     {
-        public GameDto TransformGame(Game game)
+        public GameDto TransformGame(Game game, Guid gameId)
         {
             var someVector = new Vec(1, 1);
             var width = 6;
@@ -21,7 +21,7 @@ namespace thegame.Models
                     var id = y * map.GetLength(1) + x;
                     listCellDto.Add(new CellDto(id.ToString(), new Vec(x, y), ConvertEnumToString(map[y,x]), "", 0));
                 }
-            return new GameDto(listCellDto.ToArray(), true, true, width, height, Guid.Empty, someVector.X == 0, someVector.Y);
+            return new GameDto(listCellDto.ToArray(), true, true, width, height, gameId, someVector.X == 0, someVector.Y);
         }
 
         public String ConvertEnumToString(TypeCellGame typeCellGame)

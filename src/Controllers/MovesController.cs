@@ -40,10 +40,10 @@ namespace thegame.Controllers
             }
             
             var game = gamesRepo.GetGame(gameId);
-            if (userInput.ClickedPos != null)
+            if (move != new Vec(0, 0))
                 game.MovePlayer(move);
-
-            return new ObjectResult(game);
+            var t = new TransformGameToGameDTO();
+            return new ObjectResult(t.TransformGame(game, gameId));
         }
     }
 }
