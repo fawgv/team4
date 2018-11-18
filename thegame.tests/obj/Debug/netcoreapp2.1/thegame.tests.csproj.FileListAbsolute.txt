@@ -12,3 +12,17 @@ E:\Обучение\Программирование\C#\Кампус\Хакат�
 E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.pdb
 E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.dll
 E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.pdb
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.deps.json
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.runtimeconfig.json
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.runtimeconfig.dev.json
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.dll
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.pdb
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.csprojAssemblyReference.cache
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.csproj.CoreCompileInputs.cache
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.AssemblyInfoInputs.cache
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.AssemblyInfo.cs
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.dll
+C:\Users\Ant\Documents\GitHub\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.pdb

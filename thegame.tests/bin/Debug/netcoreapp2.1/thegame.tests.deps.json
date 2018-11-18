@@ -1111,21 +1111,21 @@
     "Castle.Core/4.3.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Dx90A7xzdyYiaq1aMn3QmblpFAaVhDCiZkSblt96pf8QopOjLxCcs5ufKJA1zyg2L+Hxjnzx3JNrmfK8ZMRHvA==",
+      "sha512": "sha512-8Y/eTr6GTElAGV7eAmJuhfLhGdFpNvaNrQ9UQYDScziLmX+/BLGM+9eQr0IcdNDcPN0ADmbtwT6MgecGKy4obw==",
       "path": "castle.core/4.3.1",
       "hashPath": "castle.core.4.3.1.nupkg.sha512"
     },
     "FakeItEasy/4.9.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Vf8HaMc2qtiYjuowM/Sjts3MH9VIydkSzAkqdn5rYcpE0VpskFfjDZm+k1Sk0O/tGP2dFLGADddaIShHjA47zg==",
+      "sha512": "sha512-ahKCIZcy/Zy09FPtUpjgGN2lbEAe8fNujjHoRYinDrudOHNcusof0Lept2LieG4/URVCckW1gSAbGCqSbR4DWQ==",
       "path": "fakeiteasy/4.9.1",
       "hashPath": "fakeiteasy.4.9.1.nupkg.sha512"
     },
     "FluentAssertions/5.5.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-diQQUO7cjVm5Wm7RUbqpWdH6MgK8Ex7w5G4oAMLJVaPc6tF5jyWDOdzu8105QJeIJmXdahpEOCesGri2yGCeLw==",
+      "sha512": "sha512-iqo0dKCvMEHzICbyh4vQ0XaW+8nNkAqP2DZ6SEwEjh1KC5Z+7On39wBq39htXA/aKNkdFWmPYIiSKTrFX8D9GQ==",
       "path": "fluentassertions/5.5.1",
       "hashPath": "fluentassertions.5.5.1.nupkg.sha512"
     },
@@ -1335,7 +1335,7 @@
     "System.Diagnostics.TraceSource/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PXWAEqWXamctxvdYSlHY+HG0e++cVkg0FwiqtiOZ4Ziy31GD9uab2QAgkuDKUARcCdVq3DfruvdMnPfalEJbNw==",
+      "sha512": "sha512-VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
       "path": "system.diagnostics.tracesource/4.3.0",
       "hashPath": "system.diagnostics.tracesource.4.3.0.nupkg.sha512"
     },

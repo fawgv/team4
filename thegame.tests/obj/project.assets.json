@@ -1721,7 +1721,7 @@
   },
   "libraries": {
     "Castle.Core/4.3.1": {
-      "sha512": "Dx90A7xzdyYiaq1aMn3QmblpFAaVhDCiZkSblt96pf8QopOjLxCcs5ufKJA1zyg2L+Hxjnzx3JNrmfK8ZMRHvA==",
+      "sha512": "8Y/eTr6GTElAGV7eAmJuhfLhGdFpNvaNrQ9UQYDScziLmX+/BLGM+9eQr0IcdNDcPN0ADmbtwT6MgecGKy4obw==",
       "type": "package",
       "path": "castle.core/4.3.1",
       "files": [
@@ -1746,7 +1746,7 @@
       ]
     },
     "FakeItEasy/4.9.1": {
-      "sha512": "Vf8HaMc2qtiYjuowM/Sjts3MH9VIydkSzAkqdn5rYcpE0VpskFfjDZm+k1Sk0O/tGP2dFLGADddaIShHjA47zg==",
+      "sha512": "ahKCIZcy/Zy09FPtUpjgGN2lbEAe8fNujjHoRYinDrudOHNcusof0Lept2LieG4/URVCckW1gSAbGCqSbR4DWQ==",
       "type": "package",
       "path": "fakeiteasy/4.9.1",
       "files": [
@@ -1769,7 +1769,7 @@
       ]
     },
     "FluentAssertions/5.5.1": {
-      "sha512": "diQQUO7cjVm5Wm7RUbqpWdH6MgK8Ex7w5G4oAMLJVaPc6tF5jyWDOdzu8105QJeIJmXdahpEOCesGri2yGCeLw==",
+      "sha512": "iqo0dKCvMEHzICbyh4vQ0XaW+8nNkAqP2DZ6SEwEjh1KC5Z+7On39wBq39htXA/aKNkdFWmPYIiSKTrFX8D9GQ==",
       "type": "package",
       "path": "fluentassertions/5.5.1",
       "files": [
@@ -3535,12 +3535,11 @@
       ]
     },
     "System.Diagnostics.TraceSource/4.3.0": {
-      "sha512": "PXWAEqWXamctxvdYSlHY+HG0e++cVkg0FwiqtiOZ4Ziy31GD9uab2QAgkuDKUARcCdVq3DfruvdMnPfalEJbNw==",
+      "sha512": "VnYp1NxGx8Ww731y2LJ1vpfb/DKVNKEZ8Jsh5SgQTZREL/YpWRArgh9pI8CDLmgHspZmLL697CaLvH85qQpRiw==",
       "type": "package",
       "path": "system.diagnostics.tracesource/4.3.0",
       "files": [
         ".nupkg.metadata",
-        ".signature.p7s",
         "ThirdPartyNotices.txt",
         "dotnet_library_license.txt",
         "lib/MonoAndroid10/_._",
@@ -5988,23 +5987,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Family\\.nuget\\packages\\": {},
+    "C:\\Users\\Ant\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Обучение\\Программирование\\C#\\Кампус\\Хакатон\\team4\\thegame.tests\\thegame.tests.csproj",
+      "projectUniqueName": "C:\\Users\\Ant\\Documents\\GitHub\\team4\\thegame.tests\\thegame.tests.csproj",
       "projectName": "thegame.tests",
-      "projectPath": "E:\\Обучение\\Программирование\\C#\\Кампус\\Хакатон\\team4\\thegame.tests\\thegame.tests.csproj",
-      "packagesPath": "C:\\Users\\Family\\.nuget\\packages\\",
-      "outputPath": "E:\\Обучение\\Программирование\\C#\\Кампус\\Хакатон\\team4\\thegame.tests\\obj\\",
+      "projectPath": "C:\\Users\\Ant\\Documents\\GitHub\\team4\\thegame.tests\\thegame.tests.csproj",
+      "packagesPath": "C:\\Users\\Ant\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Ant\\Documents\\GitHub\\team4\\thegame.tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Family\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Ant\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
