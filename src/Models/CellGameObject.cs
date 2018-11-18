@@ -18,5 +18,12 @@ namespace thegame.Models
     {
         public TypeCellGame TypeCell { get; set; }
         public Vec Vec { get; set; }
+
+        public CellGameObject(Vec vec, TypeCellGame typeCell)
+        {
+            Vec = vec;
+            typeCell = TypeCell;
+        }
     }
+
 }
