@@ -109,7 +109,7 @@ namespace thegame.tests
         [TestCase(MoveDirection.Left, 1, 2)]
         [TestCase(MoveDirection.Up, 2, 1)]
         [TestCase(MoveDirection.Down, 2, 3)]
-        public void Success_MovePlayerBox(MoveDirection moveDirection, int oldBoxPosX, int oldBoxPosY)
+        public void DontMove_MovePlayerBoxDueToWall(MoveDirection moveDirection, int oldBoxPosX, int oldBoxPosY)
         {
             game = new Game(new[,]
             {
@@ -134,6 +134,69 @@ namespace thegame.tests
 
             game.GetMap()[2, 2].Should().Be(TypeCellGame.Player);
             game.GetMap()[oldBoxPosY, oldBoxPosX].Should().Be(TypeCellGame.Box);
+        }
+
+        [TestCase(MoveDirection.Right, 3, 2)]
+        [TestCase(MoveDirection.Left, 1, 2)]
+        [TestCase(MoveDirection.Up, 2, 1)]
+        [TestCase(MoveDirection.Down, 2, 3)]
+        public void DontMove_MovePlayerBoxDueToBox(MoveDirection moveDirection, int oldBoxPosX, int oldBoxPosY)
+        {
+            game = new Game(new[,]
+            {
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Box, TypeCellGame.Empty, TypeCellGame.Empty
+                },
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Box, TypeCellGame.Empty, TypeCellGame.Empty
+                },
+                {
+                    TypeCellGame.Box, TypeCellGame.Box, TypeCellGame.Player, TypeCellGame.Box, TypeCellGame.Box
+                },
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Box, TypeCellGame.Empty, TypeCellGame.Empty
+                },
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Box, TypeCellGame.Empty, TypeCellGame.Empty
+                }
+            });
+
+            game.MovePlayer(moveDirection);
+
+            game.GetMap()[2, 2].Should().Be(TypeCellGame.Player);
+            game.GetMap()[oldBoxPosY, oldBoxPosX].Should().Be(TypeCellGame.Box);
+        }
+
+        [TestCase(MoveDirection.Right, 3, 2, 4, 2)]
+        [TestCase(MoveDirection.Left, 1, 2, 0, 2)]
+        [TestCase(MoveDirection.Up, 2, 1, 2, 0)]
+        [TestCase(MoveDirection.Down, 2, 3, 2, 4)]
+        public void Move_MovePlayerBox(MoveDirection moveDirection, int newPlayerPosX, int newPlayerPosY,
+                                       int newBoxPosX, int newBoxPosY)
+        {
+            game = new Game(new[,]
+            {
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Target, TypeCellGame.Empty, TypeCellGame.Empty
+                },
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Box, TypeCellGame.Empty, TypeCellGame.Empty
+                },
+                {
+                    TypeCellGame.Target, TypeCellGame.Box, TypeCellGame.Player, TypeCellGame.Box, TypeCellGame.Target
+                },
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Box, TypeCellGame.Empty, TypeCellGame.Empty
+                },
+                {
+                    TypeCellGame.Empty, TypeCellGame.Empty, TypeCellGame.Target, TypeCellGame.Empty, TypeCellGame.Empty
+                }
+            });
+
+            game.MovePlayer(moveDirection);
+
+            game.GetMap()[newPlayerPosY, newPlayerPosX].Should().Be(TypeCellGame.Player);
+            game.GetMap()[newBoxPosY, newBoxPosX].Should().Be(TypeCellGame.BoxInTarget);
         }
     }
 }
