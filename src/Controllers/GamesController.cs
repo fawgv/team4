@@ -18,7 +18,7 @@ namespace thegame.Controllers
         public IActionResult Index()
         {
             var t = new TransformGameToGameDTO();
-            var guid = gamesRepo.CreateGame();
+            var guid = gamesRepo.CreateGame(1);
             var game = t.TransformGame(gamesRepo.GetGame(guid), guid);
             return new ObjectResult(game);
         }

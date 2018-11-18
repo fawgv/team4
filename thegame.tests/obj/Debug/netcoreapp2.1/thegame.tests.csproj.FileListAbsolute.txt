@@ -1,0 +1,17 @@
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.deps.json
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.runtimeconfig.json
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.runtimeconfig.dev.json
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.dll
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.pdb
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.dll
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.pdb
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.csprojAssemblyReference.cache
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.csproj.CoreCompileInputs.cache
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.AssemblyInfoInputs.cache
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.AssemblyInfo.cs
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.csproj.CopyComplete
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.dll
+C:\Users\Dmitry\RiderProjects\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.pdb

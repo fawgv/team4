@@ -10,11 +10,11 @@ namespace thegame.Models
         public GameDto TransformGame(Game game, Guid gameId)
         {
             var someVector = new Vec(1, 1);
-            var width = 6;
-            var height = 3;
+            var map = game.GetMap();
+            var width = map.GetLength(1);
+            var height = map.GetLength(0);
             var listCellDto = new List<CellDto>();
             var r = new Random();
-            var map = game.GetMap();
             for(int y = 0; y < map.GetLength(0); y++)
                 for (int x = 0; x < map.GetLength(1); x++)
                 {
@@ -38,6 +38,8 @@ namespace thegame.Models
                     return "empty";
                 case TypeCellGame.Target:
                     return "target";
+                case TypeCellGame.BoxInTarget:
+                    return "boxOnTarget";
                 default:
                     throw new IndexOutOfRangeException();
             }
