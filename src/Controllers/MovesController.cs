@@ -9,6 +9,13 @@ namespace thegame.Controllers
     [Route("api/games/{gameId}/moves")]
     public class MovesController : Controller
     {
+        GamesRepo gamesRepo;
+        
+        public MovesController(GamesRepo gamesRepo)
+        {
+            this.gamesRepo = gamesRepo;
+        }
+        
         public static Vec player;
         [HttpPost]
         public IActionResult Moves(Guid gameId, [FromBody]UserInputForMovesPost userInput)
@@ -35,7 +42,7 @@ namespace thegame.Controllers
                     break;
             }
             player += move;
-            var game = TestData.AGameDto(player);
+            var game = gamesRepo.GetGame(gameId);
             if (userInput.ClickedPos != null)
             {
                 game.Cells.First(c => c.Type == "player").Pos = player;
