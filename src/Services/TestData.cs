@@ -11,6 +11,10 @@ namespace thegame.Services
             var height = 8;
             var testCells = new[]
             {
+                new CellDto("1", new Vec(2, 4), "coloк", "", 0),
+                new CellDto("2", new Vec(5, 4), "color1", "", 0),
+                new CellDto("1", new Vec(2, 4), "color1", "", 0),
+                new CellDto("2", new Vec(5, 4), "color1", "", 0),
                 new CellDto("1", new Vec(2, 4), "color1", "", 0),
                 new CellDto("2", new Vec(5, 4), "color1", "", 0),
                 new CellDto("3", new Vec(3, 1), "color2", "", 20),
