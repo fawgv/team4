@@ -15,7 +15,7 @@ namespace thegame.Controllers
         {
             if (player == null)
                 player = new Vec(1, 1);
-            Vec move = null;
+            Vec move;
             switch (userInput.KeyPressed)
             {
                 case 'W':
@@ -34,11 +34,11 @@ namespace thegame.Controllers
                     move = new Vec(0, 0);
                     break;
             }
-            var game = TestData.AGameDto(move);
+            player += move;
+            var game = TestData.AGameDto(player);
             if (userInput.ClickedPos != null)
             {
-                player += move;
-                game.Cells.First(c => c.Type == "color4").Pos = player;
+                game.Cells.First(c => c.Type == "player").Pos = player;
             }
 
             return new ObjectResult(game);
