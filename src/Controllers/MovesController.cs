@@ -10,38 +10,35 @@ namespace thegame.Controllers
     public class MovesController : Controller
     {
         GamesRepo gamesRepo;
-        
+
         public MovesController(GamesRepo gamesRepo)
         {
             this.gamesRepo = gamesRepo;
         }
-        
+
         [HttpPost]
-        public IActionResult Moves(Guid gameId, [FromBody]UserInputForMovesPost userInput)
+        public IActionResult Moves(Guid gameId, [FromBody] UserInputForMovesPost userInput)
         {
-            Vec move;
+            MoveDirection? move = null;
             switch (userInput.KeyPressed)
             {
                 case 'W':
-                    move = new Vec(0,-1);
+                    move = MoveDirection.Up;
                     break;
                 case 'D':
-                    move = new Vec(1, 0);
+                    move = MoveDirection.Right;
                     break;
                 case 'S':
-                    move = new Vec(0, 1);
+                    move = MoveDirection.Down;
                     break;
                 case 'A':
-                    move = new Vec(-1, 0);
-                    break;
-                default:
-                    move = new Vec(0, 0);
+                    move = MoveDirection.Left;
                     break;
             }
-            
+
             var game = gamesRepo.GetGame(gameId);
-            if (move != new Vec(0, 0))
-                game.MovePlayer(move);
+            if (move != null)
+                game.MovePlayer(move.Value);
             var t = new TransformGameToGameDTO();
             return new ObjectResult(t.TransformGame(game, gameId));
         }
