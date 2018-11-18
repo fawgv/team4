@@ -7,7 +7,7 @@ namespace thegame.Services
 {
     public class GamesRepo
     {
-        TypeCellGame[,] firstLevel =
+        static readonly TypeCellGame[,] firstLevel =
         {
             {
                 TypeCellGame.Wall, TypeCellGame.Wall, TypeCellGame.Wall, TypeCellGame.Wall, TypeCellGame.Wall,
@@ -27,6 +27,17 @@ namespace thegame.Services
 
         public Game GetGame(Guid id) => games[id];
 
+        public static TypeCellGame[,] GetLevel(int numLevel)
+        {
+            switch (numLevel)
+            {
+                case 1:
+                    return firstLevel;
+                default:
+                    throw new Exception("Введен неверный уровень");
+            }
+        }
+        
         public void CreateGame()
         {
             Guid id = Guid.NewGuid();
