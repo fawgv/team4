@@ -91,7 +91,7 @@ namespace thegame.Models
 
         private void ChangePlayerPosition(Vec playerPosMove)
         {
-            if (CheckMapOut(playerPosMove))
+            if (!CheckMapOut(playerPosMove))
             {
                 playerPos = playerPosMove;
             }

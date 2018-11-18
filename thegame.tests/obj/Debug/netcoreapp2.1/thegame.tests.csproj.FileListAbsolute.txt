@@ -1,0 +1,17 @@
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.dll
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\NUnit3.TestAdapter.pdb
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\nunit.engine.netstandard.dll
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.deps.json
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.runtimeconfig.json
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.runtimeconfig.dev.json
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.dll
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.tests.pdb
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.dll
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\bin\Debug\netcoreapp2.1\thegame.pdb
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.csprojAssemblyReference.cache
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.csproj.CoreCompileInputs.cache
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.AssemblyInfoInputs.cache
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.AssemblyInfo.cs
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.csproj.CopyComplete
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.dll
+E:\Обучение\Программирование\C#\Кампус\Хакатон\team4\thegame.tests\obj\Debug\netcoreapp2.1\thegame.tests.pdb
