@@ -68,44 +68,81 @@ namespace thegame.Models
 
         public void MovePlayer(MoveDirection move)
         {
-            
-switch (move)
+            Vec nextPos;
+            switch (move)
             {
                 case MoveDirection.Down:
-                    var playerPosMoveDown = new Vec(playerPos.X, playerPos.Y + 1);
-                    ChangePlayerPosition(playerPosMoveDown, move);
+                    nextPos = new Vec(playerPos.X, playerPos.Y + 1);
+                    
                     break;
                 case MoveDirection.Up:
-                    var playerPosMoveUp = new Vec(playerPos.X, playerPos.Y - 1);
-                    ChangePlayerPosition(playerPosMoveUp, move);
+                     nextPos = new Vec(playerPos.X, playerPos.Y - 1);
+                 
                     break;
                 case MoveDirection.Left:
-                    var playerPosMoveLeft = new Vec(playerPos.X - 1, playerPos.Y);
-                    ChangePlayerPosition(playerPosMoveLeft, move);
+                    nextPos = new Vec(playerPos.X - 1, playerPos.Y);
+                 
                     break;
                 case MoveDirection.Right:
-                    var playerPosMoveLeftRight = new Vec(playerPos.X + 1, playerPos.Y);
-                    ChangePlayerPosition(playerPosMoveLeftRight, move);
+                    nextPos = new Vec(playerPos.X + 1, playerPos.Y);   
                     break;
+
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(move), move, null);
             }
+            ChangePlayerPosition(nextPos, move);
         }
 
         private void ChangePlayerPosition(Vec playerPosMove, MoveDirection move)
         {
-            //if (!CheckMapOut(playerPosMove))
-            //{
-            //    playerPos = playerPosMove;
-            //}
-
-           if (!CheckWallInNextMove(playerPosMove))
+            if (DynamicGameCells[playerPosMove.Y, playerPosMove.X] == TypeCellGame.Box)
             {
-                if (!CheckBoxInNextMove(playerPosMove))
+                Vec nextBox;
+                Vec behindBox;
+                switch (move)
                 {
+                    case MoveDirection.Down:
+                        nextBox = new Vec(playerPosMove.X, playerPosMove.Y + 1);
+                        behindBox = new Vec(playerPosMove.X, playerPosMove.Y + 2);
+
+                        break;
+                    case MoveDirection.Up:
+                        nextBox = new Vec(playerPosMove.X, playerPosMove.Y - 1);
+                        behindBox = new Vec(playerPosMove.X, playerPosMove.Y - 2);
+
+                        break;
+                    case MoveDirection.Left:
+                        nextBox = new Vec(playerPosMove.X - 1, playerPosMove.Y);
+                        behindBox = new Vec(playerPosMove.X - 2, playerPosMove.Y);
+                        break;
+                    case MoveDirection.Right:
+                        nextBox = new Vec(playerPosMove.X + 1, playerPosMove.Y);
+                        behindBox = new Vec(playerPosMove.X + 2, playerPosMove.Y);
+                        break;
+
+                    default:
+                        throw new ArgumentOutOfRangeException(nameof(move), move, null);
+                }
+
+                if((behindBox.Y < heigth && behindBox.X < width) && (StaticGameCells[behindBox.Y, behindBox.X] != TypeCellGame.Wall || 
+                   DynamicGameCells[behindBox.Y, behindBox.X] != TypeCellGame.Box))
+                {
+                    DynamicGameCells[nextBox.Y, nextBox.X] = TypeCellGame.Box;
+                    DynamicGameCells[playerPosMove.Y, playerPosMove.X] = TypeCellGame.Empty;
+                    playerPos = playerPosMove;
+                }
+                 
+            }
+                
+         
+           else if (!CheckWallInNextMove(playerPosMove))
+            {
+               
                     //if (ChangeBoxPosition(playerPosMove, move))
                     //{
                         playerPos = playerPosMove;
                     //}
-                }
+                
             }
         }
 
