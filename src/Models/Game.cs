@@ -68,8 +68,8 @@ namespace thegame.Models
 
         public void MovePlayer(MoveDirection move)
         {
-            
-switch (move)
+
+            switch (move)
             {
                 case MoveDirection.Down:
                     var playerPosMoveDown = new Vec(playerPos.X, playerPos.Y + 1);
@@ -97,13 +97,13 @@ switch (move)
             //    playerPos = playerPosMove;
             //}
 
-           if (!CheckWallInNextMove(playerPosMove))
+            if (!CheckWallInNextMove(playerPosMove))
             {
                 if (!CheckBoxInNextMove(playerPosMove))
                 {
                     //if (ChangeBoxPosition(playerPosMove, move))
                     //{
-                        playerPos = playerPosMove;
+                    playerPos = playerPosMove;
                     //}
                 }
             }
@@ -115,16 +115,16 @@ switch (move)
             switch (move)
             {
                 case MoveDirection.Up:
-                    nextPositionBox = new Vec(boxPosition.X, boxPosition.Y-1);
+                    nextPositionBox = new Vec(boxPosition.X, boxPosition.Y - 1);
                     break;
                 case MoveDirection.Down:
-                    nextPositionBox = new Vec(nextPositionBox.X, nextPositionBox.Y+1);
+                    nextPositionBox = new Vec(nextPositionBox.X, nextPositionBox.Y + 1);
                     break;
                 case MoveDirection.Left:
-                    nextPositionBox = new Vec(nextPositionBox.X-1, nextPositionBox.Y);
+                    nextPositionBox = new Vec(nextPositionBox.X - 1, nextPositionBox.Y);
                     break;
                 case MoveDirection.Right:
-                    nextPositionBox = new Vec(nextPositionBox.X+1, nextPositionBox.Y);
+                    nextPositionBox = new Vec(nextPositionBox.X + 1, nextPositionBox.Y);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException(nameof(move), move, null);
@@ -142,7 +142,7 @@ switch (move)
 
         }
 
-         
+
 
         private bool CheckMapOut(Vec playerMovePosition)
         {
@@ -175,5 +175,51 @@ switch (move)
 
             return ResMap;
         }
+
+        #region Statistic
+
+        private int movesCount = 0;
+
+        public int GetStatistic()
+        {
+            int targetCost = 5;
+            int targetCount = GetListTargetsFromDynamicGameCells().Count;
+            return targetCount * targetCost - movesCount;
+        }
+
+        #endregion
+
+        #region Finish
+
+        public bool IsFinished()
+        {
+            foreach (var targetVec in GetListTargetsFromDynamicGameCells())
+            {
+                if (DynamicGameCells[targetVec.Y, targetVec.X]!= TypeCellGame.Box)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        private List<Vec> GetListTargetsFromDynamicGameCells()
+        {
+            List<Vec> listVecsTargets = new List<Vec>();
+            for (int x = 0; x < width; x++)
+            {
+                for (int y = 0; y < heigth; y++)
+                {
+                    if (StaticGameCells[y,x] == TypeCellGame.Target)
+                    {
+                        listVecsTargets.Add(new Vec(x,y));
+                    }
+                }
+            }
+
+            return listVecsTargets;
+        }
+
+        #endregion
     }
 }
