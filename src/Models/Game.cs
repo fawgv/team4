@@ -66,11 +66,23 @@ namespace thegame.Models
 
         public Vec GetPlayerPos() => playerPos;
 
-        public void MovePlayer(Vec posVec)
+        public void MovePlayer(MoveDirection move)
         {
-            var oldPlayesPos = GetPlayerPos();
-            DynamicGameCells[oldPlayesPos.X, oldPlayesPos.Y] = TypeCellGame.Empty; //Доработать на проверку с StaticGameCells
-            DynamicGameCells[posVec.X, posVec.Y] = TypeCellGame.Player;
+            switch (move)
+            {
+                case MoveDirection.Down:
+                    playerPos = new Vec(playerPos.X, playerPos.Y + 1);
+                    break;
+                case MoveDirection.Up:
+                    playerPos = new Vec(playerPos.X, playerPos.Y - 1);
+                    break;
+                case MoveDirection.Left:
+                    playerPos = new Vec(playerPos.X - 1, playerPos.Y);
+                    break;
+                case MoveDirection.Right:
+                    playerPos = new Vec(playerPos.X + 1, playerPos.Y);
+                    break;
+            }
         }
 
 
