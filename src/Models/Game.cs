@@ -53,7 +53,7 @@ namespace thegame.Models
                 }
         }
 
-        public TypeCellGame FindCellGameObject(int x, int y)
+        public TypeCellGame FindCellGameObject(int y, int x)
         {
             if (y == playerPos.X && x == playerPos.Y)
                 return TypeCellGame.Player;
@@ -62,7 +62,7 @@ namespace thegame.Models
             return StaticGameCells[y, x];
         }
 
-        public TypeCellGame FindCellGameObject(Vec vec) => FindCellGameObject(vec.X, vec.Y);
+        public TypeCellGame FindCellGameObject(Vec vec) => FindCellGameObject(vec.Y, vec.X);
 
         public Vec GetPlayerPos() => playerPos;
 
@@ -127,9 +127,9 @@ namespace thegame.Models
         public TypeCellGame[,] GetMap()
         {
             var ResMap = new TypeCellGame[width, heigth];
-            for (int x = 0; x < width; x++)
-                for (int y = 0; y < heigth; y++)
-                    ResMap[x, y] = FindCellGameObject(x, y);
+            for (int y = 0; y < width; y++)
+                for (int x = 0; x < heigth; x++)
+                    ResMap[y, x] = FindCellGameObject(y, x);
 
             return ResMap;
         }
