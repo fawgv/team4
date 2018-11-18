@@ -75,8 +75,8 @@ namespace thegame.tests
             });
 
             game.MovePlayer(moveDirection);
-
-            game.GetPlayerPos().Should().Be(new Vec(newPlayerPosY, newPlayerPosX));
+            game.GetMap()[newPlayerPosY, newPlayerPosX].Should().Be(TypeCellGame.Player);
+            game.GetMap()[1, 1].Should().Be(TypeCellGame.Empty);
         }
 
         [TestCase(MoveDirection.Right)]
@@ -99,8 +99,8 @@ namespace thegame.tests
             });
 
             game.MovePlayer(moveDirection);
-
-            game.GetPlayerPos().Should().Be(new Vec(1, 1));
+            game.GetMap()[1,1].Should().Be(TypeCellGame.Player);
+         
         }
 
         [TestCase(MoveDirection.Right, 3, 2, 4, 2)]

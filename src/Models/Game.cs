@@ -68,38 +68,78 @@ namespace thegame.Models
 
         public void MovePlayer(MoveDirection move)
         {
-            switch (move)
+            
+switch (move)
             {
                 case MoveDirection.Down:
                     var playerPosMoveDown = new Vec(playerPos.X, playerPos.Y + 1);
-                    ChangePlayerPosition(playerPosMoveDown);
+                    ChangePlayerPosition(playerPosMoveDown, move);
                     break;
                 case MoveDirection.Up:
                     var playerPosMoveUp = new Vec(playerPos.X, playerPos.Y - 1);
-                    ChangePlayerPosition(playerPosMoveUp);
+                    ChangePlayerPosition(playerPosMoveUp, move);
                     break;
                 case MoveDirection.Left:
                     var playerPosMoveLeft = new Vec(playerPos.X - 1, playerPos.Y);
-                    ChangePlayerPosition(playerPosMoveLeft);
+                    ChangePlayerPosition(playerPosMoveLeft, move);
                     break;
                 case MoveDirection.Right:
                     var playerPosMoveLeftRight = new Vec(playerPos.X + 1, playerPos.Y);
-                    ChangePlayerPosition(playerPosMoveLeftRight);
+                    ChangePlayerPosition(playerPosMoveLeftRight, move);
                     break;
             }
         }
 
-        private void ChangePlayerPosition(Vec playerPosMove)
+        private void ChangePlayerPosition(Vec playerPosMove, MoveDirection move)
         {
-            if (!CheckMapOut(playerPosMove))
+            //if (!CheckMapOut(playerPosMove))
+            //{
+            //    playerPos = playerPosMove;
+            //}
+
+           if (!CheckWallInNextMove(playerPosMove))
             {
-                playerPos = playerPosMove;
+                if (!CheckBoxInNextMove(playerPosMove))
+                {
+                    //if (ChangeBoxPosition(playerPosMove, move))
+                    //{
+                        playerPos = playerPosMove;
+                    //}
+                }
+            }
+        }
+
+        private bool ChangeBoxPosition(Vec boxPosition, MoveDirection move)
+        {
+            Vec nextPositionBox = boxPosition;
+            switch (move)
+            {
+                case MoveDirection.Up:
+                    nextPositionBox = new Vec(boxPosition.X, boxPosition.Y-1);
+                    break;
+                case MoveDirection.Down:
+                    nextPositionBox = new Vec(nextPositionBox.X, nextPositionBox.Y+1);
+                    break;
+                case MoveDirection.Left:
+                    nextPositionBox = new Vec(nextPositionBox.X-1, nextPositionBox.Y);
+                    break;
+                case MoveDirection.Right:
+                    nextPositionBox = new Vec(nextPositionBox.X+1, nextPositionBox.Y);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(move), move, null);
             }
 
-           else if (!CheckWallInNextMove(playerPosMove))
+            if (!CheckWallInNextMove(nextPositionBox) && !CheckBoxInNextMove(nextPositionBox))
             {
-                
+                var oldBoxCell = DynamicGameCells[boxPosition.Y, boxPosition.X];
+                DynamicGameCells[nextPositionBox.Y, nextPositionBox.X] = oldBoxCell;
+                return true;
             }
+
+            return false;
+
+
         }
 
          
@@ -115,22 +155,22 @@ namespace thegame.Models
 
         private bool CheckWallInNextMove(Vec nextMovePosition)
         {
-            var result = StaticGameCells[nextMovePosition.Y, nextMovePosition.X] != TypeCellGame.Wall;
+            var result = StaticGameCells[nextMovePosition.Y, nextMovePosition.X] == TypeCellGame.Wall;
             return result;
         }
 
         private bool CheckBoxInNextMove(Vec nextMovePosition)
         {
-            var result = StaticGameCells[nextMovePosition.Y, nextMovePosition.X] != TypeCellGame.Box;
+            var result = StaticGameCells[nextMovePosition.Y, nextMovePosition.X] == TypeCellGame.Box;
             return result;
         }
 
 
         public TypeCellGame[,] GetMap()
         {
-            var ResMap = new TypeCellGame[width, heigth];
-            for (int y = 0; y < width; y++)
-                for (int x = 0; x < heigth; x++)
+            var ResMap = new TypeCellGame[heigth, width];
+            for (int y = 0; y < heigth; y++)
+                for (int x = 0; x < width; x++)
                     ResMap[y, x] = FindCellGameObject(y, x);
 
             return ResMap;
