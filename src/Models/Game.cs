@@ -96,13 +96,15 @@ namespace thegame.Models
                 playerPos = playerPosMove;
             }
 
-            if (false)
+           else if (!CheckWallInNextMove(playerPosMove))
             {
                 
             }
         }
 
-        public bool CheckMapOut(Vec playerMovePosition)
+         
+
+        private bool CheckMapOut(Vec playerMovePosition)
         {
             var result = playerMovePosition.X < 0
                          || playerMovePosition.Y < 0
@@ -111,15 +113,15 @@ namespace thegame.Models
             return result;
         }
 
-        public bool CheckWallInNextMove(Vec nextMovePosition)
+        private bool CheckWallInNextMove(Vec nextMovePosition)
         {
-            var result = StaticGameCells[nextMovePosition.X, nextMovePosition.Y] != TypeCellGame.Wall;
+            var result = StaticGameCells[nextMovePosition.Y, nextMovePosition.X] != TypeCellGame.Wall;
             return result;
         }
 
-        public bool CheckBoxInNextMove(Vec nextMovePosition)
+        private bool CheckBoxInNextMove(Vec nextMovePosition)
         {
-            var result = StaticGameCells[nextMovePosition.X, nextMovePosition.Y] != TypeCellGame.Box;
+            var result = StaticGameCells[nextMovePosition.Y, nextMovePosition.X] != TypeCellGame.Box;
             return result;
         }
 
