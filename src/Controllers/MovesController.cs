@@ -9,9 +9,12 @@ namespace thegame.Controllers
     [Route("api/games/{gameId}/moves")]
     public class MovesController : Controller
     {
+        public static Vec player;
         [HttpPost]
         public IActionResult Moves(Guid gameId, [FromBody]UserInputForMovesPost userInput)
         {
+            if (player == null)
+                player = new Vec(1, 1);
             Vec move = null;
             switch (userInput.KeyPressed)
             {
@@ -33,7 +36,11 @@ namespace thegame.Controllers
             }
             var game = TestData.AGameDto(move);
             if (userInput.ClickedPos != null)
-                game.Cells.First(c => c.Type == "color4").Pos += move;
+            {
+                player += move;
+                game.Cells.First(c => c.Type == "color4").Pos = player;
+            }
+
             return new ObjectResult(game);
         }
     }
